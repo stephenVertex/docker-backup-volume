@@ -66,9 +66,9 @@ docker run \
 --name $uuid \
 $IMAGE
 
-mkdir /tmp/$uuid
-tar -xf $prefix/$volume/$snapshot -C /tmp/$uuid 
-cd /tmp/$uuid
+mkdir -p ~/tmp2/$uuid
+tar -xf $prefix/$volume/$snapshot -C ~/tmp2/$uuid 
+cd ~/tmp2/$uuid
 
 docker cp -a . $uuid:/data
 docker rm $uuid
