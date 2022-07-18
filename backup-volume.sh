@@ -36,8 +36,10 @@ docker run \
 --name $uuid \
 $IMAGE
 
+mkdir -p ~/tmp2
+
 timestamp=$(date +%Y-%m-%d_%H%M%S)
-docker cp -a $uuid:/data /tmp/$uuid
-tar -C /tmp/$uuid -czf $prefix/$volume/${timestamp}_${volume}.tar.gz .
-rm -rf /tmp/$uuid
+docker cp -a $uuid:/data ~/tmp2/$uuid
+tar -C ~/tmp2/$uuid -czf $prefix/$volume/${timestamp}_${volume}.tar.gz .
+rm -rf ~/tmp2/$uuid
 docker rm $uuid
